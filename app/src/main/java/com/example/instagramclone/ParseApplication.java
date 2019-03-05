@@ -3,6 +3,7 @@ package com.example.instagramclone;
 import android.app.Application;
 
 import com.parse.Parse;
+import com.parse.ParseObject;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -12,8 +13,7 @@ public class ParseApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        // Use for troubleshooting -- remove this line for production
-        Parse.setLogLevel(Parse.LOG_LEVEL_DEBUG);
+        ParseObject.registerSubclass(Post.class);
 
         // Use for monitoring Parse OkHttp traffic
         // Can be Level.BASIC, Level.HEADERS, or Level.BODY
@@ -28,10 +28,9 @@ public class ParseApplication extends Application {
         // any network interceptors must be added with the Configuration Builder given this syntax
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("chris-instagram") // should correspond to APP_ID env variable
-                .clientKey("theMagicKey")  // set explicitly unless clientKey is explicitly configured on Parse server
-                .clientBuilder(builder)
-                .server("http://chris-instagram.herokuapp.com/parse").build());
-
+                // set explicitly unless clientKey is explicitly configured on Parse server
+                .clientKey("PleaseAndThankYou")
+                .server("https://chris-instagram.herokuapp.com/parse").build());
 
     }
 }

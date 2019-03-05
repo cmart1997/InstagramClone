@@ -53,7 +53,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void goMainActivity() {
+        Log.d(TAG, "Navigating to main activity");
         Intent i = new Intent(this,MainActivity.class);
         startActivity(i);
+        finish();
     }
 }
