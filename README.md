@@ -33,7 +33,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-The https:// instead of te http:// for the parse server had me stuck forever. 
+The https:// instead of the http:// for the parse server had me stuck forever. 
 
 ## Open-source libraries used
 
