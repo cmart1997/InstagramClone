@@ -22,15 +22,12 @@ import android.widget.Toast;
 
 import com.example.instagramclone.Post;
 import com.example.instagramclone.R;
-import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
-import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import java.io.File;
-import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -159,24 +156,6 @@ public class ComposeFragment extends Fragment {
                 Log.d(TAG, "Success");
                 etDescription.setText("");
                 ivPostImage.setImageResource(0);
-            }
-        });
-    }
-
-    private void queryPosts() {
-        ParseQuery<Post> postQuery = new ParseQuery<Post>(Post.class);
-        postQuery.include(Post.KEY_USER);
-        postQuery.findInBackground(new FindCallback<Post>() {
-            @Override
-            public void done(List<Post> posts, ParseException e) {
-                if (e != null) {
-                    Log.e(TAG, "Error fetching data");
-                    return;
-                }
-                for (int i = 0; i < posts.size(); i++) {
-                    Post post = posts.get(i);
-                    Log.d(TAG, "Post: " + post.getDescription() + ", user: " + post.getUser().getUsername());
-                }
             }
         });
     }
